@@ -309,6 +309,15 @@ nav li:first-child{
 }
 
 
+#description-of-book {
+    height: 100px;
+    width: 500px;
+    resize: none;
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
 
 
 

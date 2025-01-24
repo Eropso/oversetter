@@ -63,19 +63,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
             <?php
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
                 $book = filter_input(INPUT_POST, 'book', FILTER_SANITIZE_SPECIAL_CHARS);
                 $languages = $_POST['languages'];
+                $description = $_POST['description-of-book'];
 
-                if(empty($book) || empty($languages)){
+                
+                //empty show error
+                if(empty($book) || empty($languages || empty($description))){
                     echo "<p class='error-message'>Please fill in all fields.</p>";
                 }
                 else{
                     $user_id = $_SESSION['user']['id'];
                 
-                    $sql = "INSERT INTO book (user_id, book, languages) VALUES (?, ?, ?)";
+                    $sql = "INSERT INTO book (user_id, book, languages, descriptions) VALUES (?, ?, ?, ?)";
                     $stmt = mysqli_prepare($conn, $sql);
-                    mysqli_stmt_bind_param($stmt, "iss", $user_id, $book, $languages);
+                    mysqli_stmt_bind_param($stmt, "isss", $user_id, $book, $languages, $description);
                     mysqli_stmt_execute($stmt);
                     header("Location: receipt.php");
                 }
@@ -97,6 +99,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <option value="Mandarin">Mandarin</option>
                 </select>
             </div>
+
+
+
+            <h2>Write your book translation request</h2>
+            <textarea name="description-of-book" id="description-of-book"></textarea>
 
 
 
