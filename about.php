@@ -28,6 +28,7 @@ include("database.php");
             <li class="hideOnMobile"><a href="about.php">About</a></li>
             <li class="hideOnMobile"><a href="inquiry.php">Inquiry</a></li>
 
+            <!-- If logged in show profile else show login -->
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                 <div class="dropdown">
                     <img class="profile" src="images/defaultprofile.svg" alt="defaultprofile" onclick="myFunction()">
@@ -45,12 +46,15 @@ include("database.php");
 
 
     
-
-    <div class="about_container">
+    <!-- About -->
+    <div class="about-container">
         <h1>About</h1>
-        <p>
-            Tradutt is a specialized translation website focused on books. The translations are carried out by Geir Petter Torgersen, a translator with over a decade of experience. With a keen attention to detail, Geir ensures that the original essence and tone of each work are accurately preserved. Whether it's novels, academic texts, or other literary works, Tradutt provides a professional and reliable service.        
-        </p>
+        <div class="about-content">
+            <p>
+                Tradutt is a specialized translation website focused on books. The translations are carried out by Geir Petter Torgersen, a translator with over a decade of experience. With a keen attention to detail, Geir ensures that the original essence and tone of each work are accurately preserved. Whether it's novels, academic texts, or other literary works, Tradutt provides a professional and reliable service.        
+            </p>
+        </div>
+
     </div>
 
 

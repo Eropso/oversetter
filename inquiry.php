@@ -3,7 +3,7 @@ session_start();
 include("database.php");
 
 
-
+//If not logged in sent to login
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: authentication/login.php");
     exit();
@@ -36,6 +36,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <li class="hideOnMobile"><a href="about.php">About</a></li>
             <li class="hideOnMobile"><a href="inquiry.php">Inquiry</a></li>
 
+
+            <!-- If logged in show profile else show login -->
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                 <div class="dropdown">
                     <img class="profile" src="images/defaultprofile.svg" alt="defaultprofile" onclick="myFunction()">
@@ -56,7 +58,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     
     <div class="inquiry">
 
-        <form action="" method="POST">
+        <form class="form-container-inquiry" action="" method="POST">
+            <div class="content-inquiry">
+
             <?php
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -76,8 +80,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     header("Location: receipt.php");
                 }
             }
-
             ?>
+            
             <h2>Name of Book</h2>
             <input type="text" name="book">
 
@@ -100,6 +104,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
             <div>
                 <button class="inquiry-submit">Submit</button>
+            </div>
             </div>
         </form>
 

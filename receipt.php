@@ -34,7 +34,8 @@ $username = $_SESSION['user']['username']
             <li><a class="tradutt-logo" href="index.php"><p>Tradutt</p></a></li>
             <li class="hideOnMobile"><a href="about.php">About</a></li>
             <li class="hideOnMobile"><a href="inquiry.php">Inquiry</a></li>
-
+        
+            <!-- If logged in show profile else show login -->
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                 <div class="dropdown">
                     <img class="profile" src="images/defaultprofile.svg" alt="defaultprofile" onclick="myFunction()">
@@ -54,9 +55,12 @@ $username = $_SESSION['user']['username']
     
 
     <div class="receipt">
-    <p>Your order was successful <span style="font-weight: bold;"><?php echo $username; ?></span>. We will get back to you in the following days. Normal response is within 48 hours. If you have any questions, please feel free to contact us.
-        The payment will vary from the lenght of the book.
-    </p>
+        <div class="receipt-content">
+            <p>
+                Your order was successful <span style="font-weight: bold;"><?php echo $username; ?></span>. We will get back to you in the following days. Normal response is within 48 hours. If you have any questions, please feel free to contact us.
+                The payment will vary from the lenght of the book.
+            </p>
+        </div>
     </div>
 
 

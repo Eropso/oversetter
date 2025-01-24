@@ -5,11 +5,13 @@ body {
     font-family: "Lato", serif;
     font-weight: 400;
     font-style: normal;
-
+    margin: 0;
+    padding: 0;
 }
 
 
 
+/* Authentication */
 .body-login {
     margin: 0;
     padding: 0;
@@ -21,9 +23,6 @@ body {
     background-color: #0D1317;
 }
 
-
-
-/* Authentication */
 .logout-button {
     padding: 10px 20px;
     color: #fff;
@@ -54,22 +53,6 @@ body {
 
 .logout-button:hover {
     background-color: #2b4de4;
-}
-
-.forgotPass {
-    padding: 5px 8px;
-    color: black;
-    background-color: white;
-    border: black solid 1px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: backgound-color 0.3s;
-}
-
-.forgotPass:hover {
-    background-color: rgb(247, 247, 247)
 }
 
 .title {
@@ -122,11 +105,6 @@ input[type="text"] {
     font-size: 14px;
     color: #ff4d4d;
 }
-
-
-
-
-
 
 
 
@@ -290,6 +268,19 @@ nav li:first-child{
 
 
 
+
+
+
+/* Inquiries */
+.form-container-inquiry{
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.content-inquiry {
+    padding: 60px;
+}
+
 .inquiry {
     margin: 0;
     padding: 0;
@@ -299,9 +290,6 @@ nav li:first-child{
     min-height: 80vh;
 
 }
-
-
-
 
 .inquiry-submit{
     width: 100%;
@@ -315,23 +303,16 @@ nav li:first-child{
     transition: background-color 0.3s ease;
 }
 
-
 .inquiry-submit:hover {
     background-color: #2b4de4;
     color: white;
 }
 
-#description-of-book {
-    height: 300px;
-    width: 500px;
-    resize: none;
-    font-family: "Lato", serif;
-    font-weight: 400;
-    font-style: normal;
-
-}
 
 
+
+
+/* Receipt */
 .receipt {
     display: flex;
     justify-content: center;
@@ -340,8 +321,16 @@ nav li:first-child{
     text-align: center;
 }
 
+
+.receipt-content {
+    width: 50%;
+    line-height: 40px;
+    font-size: 21px;
+}
+
+
 /* About */
-.about_container {
+.about-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -349,11 +338,122 @@ nav li:first-child{
     text-align: center;
 }
 
+.about-content {
+    width: 50%;
+    line-height: 40px;
+    font-size: 21px;
+}
+
+
 
 .language-container {
     margin-bottom: 50px;
 }
 
+
+
+
+
+/* Admin */
 table {
     border-collapse: collapse;
+}
+
+.admin-container {
+    margin-left: 30px;
+}
+
+
+
+
+
+/* Homepage */
+.book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 720px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    
+}
+
+.hero_text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    padding-left: 10%;
+}
+
+.line_home {
+    height: 5px;
+    width: 400px;
+    background-color: black;
+    margin: 0;
+}
+
+.short_about {
+    margin-top: 3%;
+    font-size: 30px;
+}
+
+.title_hero {
+    font-size: 70px;
+}
+.button_hero {
+    font-size: 25px;
+    width: 200px;
+    height: 45px;
+    cursor: pointer;
+}
+
+
+.button_hero button {
+    font-size: 25px;
+    width: 200px;
+    height: 45px;
+    color: white;
+    background-color: #2f55ff;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.button_hero button:hover {
+    background-color: #2b4de4;
+}
+
+a.button-link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.black {
+    color: black;
 }
