@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+body {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+
 
 .body-login {
     margin: 0;
@@ -244,7 +255,7 @@ nav li:first-child{
 }
 
 .dropdown-content a:hover {
-    background-color: #2b4de4;
+    background-color: #2f55ff;
 }
 
 .show {
@@ -280,14 +291,69 @@ nav li:first-child{
 
 
 .inquiry {
-    width: 500px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
 
+}
+
+
+
+
+.inquiry-submit{
+    width: 100%;
+    padding: 10px;
+    background-color: #2f55ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.inquiry-submit:hover {
+    background-color: #2b4de4;
+    color: white;
 }
 
 #description-of-book {
     height: 300px;
     width: 500px;
     resize: none;
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
 
 }
 
+
+.receipt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* About */
+.about_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.language-container {
+    margin-bottom: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}

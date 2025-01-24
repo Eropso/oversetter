@@ -1,15 +1,7 @@
 <?php
 session_start();
 include("../database.php");
-
-
 ?>
-
-
-
-    
-
-
 
 
 
@@ -28,8 +20,8 @@ include("../database.php");
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-            $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+            $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
         
             if (empty($email) || empty($username) || empty($password)) {
                 echo "Please fill in all fields";
@@ -41,7 +33,7 @@ include("../database.php");
                 $result_check = mysqli_stmt_get_result($stmt_check);
         
                 if (mysqli_num_rows($result_check) > 0) {
-                    echo "User already exists. Please log in.";
+                    echo "<p class='error-message'>User already exists. Please log in.</p>";
                 } else {
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         
@@ -51,6 +43,7 @@ include("../database.php");
                         mysqli_stmt_bind_param($stmt, "sss", $email, $username, $hashed_password);
                         if (mysqli_stmt_execute($stmt)) {
                             echo "Registration successful! You can now log in.";
+                            header("Location: login.php");
                         } else {
                             echo "<p class='error-message'>Could not execute query.</p>";
                         }

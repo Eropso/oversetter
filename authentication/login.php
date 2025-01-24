@@ -18,7 +18,7 @@ include("../database.php");
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
         
             if (empty($email) || empty($password)) {
                 echo "Please fill in all fields.";
@@ -37,7 +37,8 @@ include("../database.php");
                             $_SESSION['user'] = [
                                 'id' => $user['id'],
                                 'email' => $user['email'],
-                                'username' => $user['username']
+                                'username' => $user['username'],
+                                'role' => $user['role']
                             ];
                             echo "Login successful!";
                             $_SESSION['loggedin'] = true; 
@@ -50,7 +51,7 @@ include("../database.php");
                         echo "<p class='error-message'>No account found with that email address.</p>";
                     }
                 } else {
-                    echo "<p class='error-message'>Error: Unable to prepare the database query.</p>";
+                    echo "<p class='error-message'>Unable to prepare the database query.</p>";
                 }
             }
         }
@@ -70,9 +71,6 @@ include("../database.php");
                 <a href="register.php">Register yourself now</a>
             </p>
             
-            <a href="reset_password.php">
-                <input class="forgotPass" type="button" value="I forgot my password">
-            </a>
         </form>
     </div>
 </body>

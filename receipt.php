@@ -1,6 +1,12 @@
 <?php
 session_start();
+
 include("database.php");
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: authentication/login.php");
+    exit();
+}
+$username = $_SESSION['user']['username']
 
 
 ?>
@@ -19,8 +25,8 @@ include("database.php");
     <nav>
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href="#"><img src="images/close.svg" alt=""></a></li>
+            <li><a href="about.php">About</a></li>
             <li><a href="inquiry.php">Inquiry</a></li>
-            <li><a href="faq.php">FAQ</a></li>
             <li><a href="mailto:phpkuben@gmail.com">Contact</a></li>
         </ul>
         
@@ -47,7 +53,11 @@ include("database.php");
 
     
 
-
+    <div class="receipt">
+    <p>Your order was successful <span style="font-weight: bold;"><?php echo $username; ?></span>. We will get back to you in the following days. Normal response is within 48 hours. If you have any questions, please feel free to contact us.
+        The payment will vary from the lenght of the book.
+    </p>
+    </div>
 
 
     <script src="script.js"></script>

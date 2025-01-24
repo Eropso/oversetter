@@ -1,8 +1,7 @@
 <?php
 session_start();
+
 include("database.php");
-
-
 ?>
 
 
@@ -47,6 +46,12 @@ include("database.php");
 
     
 
+    <div class="about_container">
+        <h1>About</h1>
+        <p>
+            Tradutt is a specialized translation website focused on books. The translations are carried out by Geir Petter Torgersen, a translator with over a decade of experience. With a keen attention to detail, Geir ensures that the original essence and tone of each work are accurately preserved. Whether it's novels, academic texts, or other literary works, Tradutt provides a professional and reliable service.        
+        </p>
+    </div>
 
 
 

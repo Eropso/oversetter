@@ -1,7 +1,13 @@
 <?php
 session_start();
 include("database.php");
+$role = $_SESSION['user']['role'];
 
+
+if ( $role !== 'admin') {
+    header("Location: index.php");
+    exit();
+}
 
 ?>
 
@@ -46,7 +52,52 @@ include("database.php");
 
 
     
+    <div>
+        <h1>Orders</h1>
+        <?php
+        $sql = "SELECT * FROM book";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            echo "<table border='1'>";
+            echo "<tr><th>User ID</th><th>Book Name</th><th>Languages</th><th>Reg_date</th></tr>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr><td>" . $row['user_id'] . "</td><td>" . $row['book'] . "</td><td>" . $row['languages'] . "</td><td>" . $row['reg_date'] . "</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "No orders found.";
+        }
+        ?>
+    </div>
 
+    <div>
+        <h1>Users</h1>
+        <?php
+        $sql = "SELECT * FROM users";
+        $result = mysqli_query($conn, $sql);
+        echo "<table border='1'>";
+        echo "<tr><th>ID</th><th>Username</th><th>Password</th><th>Reg_date</th><th>Role</th></tr>";
+        while ($row = mysqli_fetch_array($result)){   
+            $id = $row["id"];    
+            $username = $row["username"];    
+            $password = $row["password"];    
+            $reg_date = $row["reg_date"];
+            $role = $row["role"];
+
+
+            if ($role == 'admin') {
+                $color = 'yellow';
+            } 
+            else {
+                $color = 'greenyellow';
+            }
+
+            echo '<tr style="background-color: ' . $color . '"><td>' .$id. '</td><td>' .$username. '</td><td>' .$password. '</td><td>'  .$reg_date. '</td><td>' .$role. ' </td></tr>';   
+        }
+        echo "</table>";
+        ?>
+    </div>
+    
 
 
 
